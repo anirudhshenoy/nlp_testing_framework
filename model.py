@@ -10,6 +10,7 @@ from tqdm import tqdm
 from pymagnitude import Magnitude
 import numpy as np
 from nltk import word_tokenize
+from sklearn.ensemble import RandomForestClassifier
 
 
 
@@ -30,7 +31,7 @@ def read_test_file(filepath):
     return (X_test, y_test)
 
 
-def featurize_and_split(dataset):
+def featurize_and_split(dataset, features):
     print('Featurizing...')
 
     X, y = dataset
@@ -41,11 +42,17 @@ def featurize_and_split(dataset):
     y_train = le.fit_transform(y_train)
     y_test = le.transform(y_test)
 
-    #X_train, X_test = tfidf_vectorize((X_train, X_test))
-    X_train, X_test = avg_glove((X_train, X_test))
+    for feature_name, feature in features.items():
+        #X_train, X_test = tfidf_vectorize((X_train, X_test))
+        #X_train, X_test = avg_glove((X_train, X_test))
+        X_train_feat, X_test_feat = feature((X_train, X_test))
+        features[feature_name] = {
+            'featurizer' : feature,
+            'feature_data' : ((X_train_feat, y_train), (X_test_feat, y_test))
+        }
     print('glove done')
-
-    return (X_train, y_train), (X_test, y_test)
+    return features 
+    #return (X_train, y_train), (X_test, y_test)
 
 def avg_glove(X):
     X_train, X_test = X
@@ -88,10 +95,27 @@ if __name__ == '__main__':
     
     dataset = read_data('dataset/mainModel.csv')
     dataset = preprocess(dataset)
-    train_data, test_data = featurize_and_split(dataset)
-    svm = MultiOutputClassifier(SVC(probability = True))
-    report({'svm' : svm}, train_data, test_data)
-    #(X_train, y_train), (X_test, y_test) = train_data, test_data
+    features = {
+        'glove' : avg_glove,
+        'tfidf' : tfidf_vectorize,
+    }
 
-    #svm.fit(X_train, y_train)
-    #print(svm.predict_proba(X_test))
+    features = featurize_and_split(dataset, features)
+    svm = {
+        'model' : MultiOutputClassifier(SVC(probability = True)),
+        'params' : {'estimator__C' : [0.1, 1, 10, 50, 100], 'estimator__kernel': ['rbf', 'linear']}
+    }
+
+    rf = {
+        'model' : MultiOutputClassifier(RandomForestClassifier()),
+        'params' : {'estimator__n_estimators' : [10, 50, 100]}
+    }
+
+    models = {
+        'svm' : svm,
+        'rf' : rf
+    }
+
+
+    report(models, features)
+  
