@@ -1,0 +1,38 @@
+import ./common.chatito
+%[schedule-meeting]('training': '250')
+    *[15%] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime]
+    *[25%] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime] on @[bookDate]
+    *[15%] ~[find] ~[some?] ~[available?] ~[meeting] on @[bookDate]
+    *[25%] ~[find] ~[some?] ~[available?] ~[meeting] between @[bookTime] and @[bookTime]
+    *[10%] ~[find] ~[some?] ~[available] ~[meeting]
+    *[10%] ~[book] ~[some?] ~[available?] ~[meeting]
+
+~[find]
+    show
+    look for
+    search
+    show me
+    find
+    identify
+
+~[book]
+    schedule 
+    book
+    fix
+    reserve
+    arrange
+    setup
+
+~[some]
+    all
+    any
+    some
+
+~[available]
+    available
+
+~[meeting]
+    meeting
+    meet
+    room
+    hall
