@@ -1,12 +1,11 @@
 import ./common.chatito
 %[schedule-meeting]('training': '2000')
-    *[10%] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime]
-    *[25%] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime] on @[bookDate]
+    *[35%] ~[please?] ~[self?] ~[statement?] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime]
+    *[10%] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime] on @[bookDate]
     *[10%] ~[find] ~[some?] ~[available?] ~[meeting] on @[bookDate]
     *[25%] ~[find] ~[some?] ~[available?] ~[meeting] between @[bookTime] and @[bookTime]
     *[10%] ~[find] ~[some?] ~[available] ~[meeting]
     *[10%] ~[book] ~[some?] ~[available?] ~[meeting]
-    *[10%] ~[self] ~[statement]
 
 ~[find]
     show

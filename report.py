@@ -87,7 +87,10 @@ def report(models, features):
         for model_name, model in models.items():
             #model.fit(X_train, y_train)
             (X_train, y_train), (X_test, y_test) = feature['feature_data']
-            if model['params']:
+            if model['params'] == 'validate':
+                model = model['model']
+                model.fit(X_train, y_train, X_test, y_test)
+            elif model['params']:
                 model = run_grid_search(model['model'], model['params'], X_train, y_train)
             else:
                 model = model['model']
