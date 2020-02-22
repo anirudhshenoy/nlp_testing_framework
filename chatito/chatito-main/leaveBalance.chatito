@@ -15,6 +15,7 @@ import ./common.chatito
     leave
     vacation
     holiday
+    break
 
 @[typeOfLeave]
     casual

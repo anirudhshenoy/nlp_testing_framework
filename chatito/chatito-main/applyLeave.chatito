@@ -1,6 +1,6 @@
 import ./common.chatito
 
-%[apply-leave]('training': '250')
+%[apply-leave]('training': '500')
     *[30%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] on @[bookDate]
     *[30%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] 
     *[30%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] from @[bookDate] to @[bookDate]
@@ -11,11 +11,14 @@ import ./common.chatito
     application
     avail
     get
+    mark
+    take a 
 
 ~[leave]
     leave
     vacation
     holiday
+    break
 
 @[typeOfLeave]
     casual

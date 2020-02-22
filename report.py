@@ -75,7 +75,7 @@ def print_model_metrics(y_test, y_pred_prob, verbose = False, return_metrics = T
         return ([f1, roc_auc, hamming, loss], least_conf)
 
 def run_grid_search(model, params, features, y):
-    grid = GridSearchCV(model, params, cv = 3, n_jobs = -1, scoring = 'f1_samples', verbose = 1, refit = True)    # Change to cv=7
+    grid = GridSearchCV(model, params, cv = 7, n_jobs = -1, scoring = 'f1_samples', verbose = 1, refit = True)    # Change to cv=7
     grid.fit(features,y)
     print(grid.best_params_)
     return grid.best_estimator_       
@@ -87,7 +87,11 @@ def report(models, features):
         for model_name, model in models.items():
             #model.fit(X_train, y_train)
             (X_train, y_train), (X_test, y_test) = feature['feature_data']
-            model = run_grid_search(model['model'], model['params'], X_train, y_train)
+            if model['params']:
+                model = run_grid_search(model['model'], model['params'], X_train, y_train)
+            else:
+                model = model['model']
+                model.fit(X_train, y_train)
             y_pred = model.predict_proba(X_test)
             y_pred = np.array([y[:,1] for y in y_pred]).transpose()
             temp_results, least_conf = print_model_metrics(y_test, y_pred)

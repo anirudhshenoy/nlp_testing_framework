@@ -50,7 +50,8 @@ if __name__ == '__main__':
     features = featurize_and_split(dataset, features)
     svm = {
         'model' : MultiOutputClassifier(SVC(probability = True)),
-        'params' : {'estimator__C' : [0.1, 1, 10, 50, 100], 'estimator__kernel': ['rbf', 'linear']}
+        #'params' : {'estimator__C' : [0.1, 1, 10, 50, 100], 'estimator__kernel': ['rbf', 'linear']}
+        'params' : None
     }
 
     rf = {
