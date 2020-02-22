@@ -1,8 +1,9 @@
 import ./common.chatito
 
-%[leave-balance]('training': '250')
-    *[50%] ~[self?] ~[statement] ~[check] @[typeOfLeave?] ~[leave] ~[balance]
-    *[50%] ~[question?] ~[show?] @[typeOfLeave?] ~[leave] ~[balance]
+%[leave-balance]('training': '2000')
+    *[33%] ~[self?] ~[statement] ~[check] @[typeOfLeave?] ~[leave] ~[balance]
+    *[33%] ~[question?] ~[show?] @[typeOfLeave?] ~[leave] ~[balance]
+    *[33%] how many @[typeOfLeave?] ~[leave] ~[balance]
 
 ~[apply]
     apply
@@ -13,6 +14,7 @@ import ./common.chatito
 
 ~[leave]
     leave
+    leaves
     vacation
     holiday
     break
@@ -27,12 +29,15 @@ import ./common.chatito
 
 ~[balance]
     balance
+    bal
     quota
     allowance
     number remaining
     due
     still there
     still left
+    having
+    entitlement
 
 ~[show]
     display

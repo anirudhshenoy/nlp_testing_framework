@@ -1,11 +1,12 @@
 import ./common.chatito
-%[schedule-meeting]('training': '500')
-    *[15%] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime]
+%[schedule-meeting]('training': '2000')
+    *[10%] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime]
     *[25%] ~[book] ~[available?] ~[meeting] from @[bookTime] to @[bookTime] on @[bookDate]
-    *[15%] ~[find] ~[some?] ~[available?] ~[meeting] on @[bookDate]
+    *[10%] ~[find] ~[some?] ~[available?] ~[meeting] on @[bookDate]
     *[25%] ~[find] ~[some?] ~[available?] ~[meeting] between @[bookTime] and @[bookTime]
     *[10%] ~[find] ~[some?] ~[available] ~[meeting]
     *[10%] ~[book] ~[some?] ~[available?] ~[meeting]
+    *[10%] ~[self] ~[statement]
 
 ~[find]
     show
@@ -24,6 +25,8 @@ import ./common.chatito
     setup
     set up
     block
+    organize
+    organise
 
 ~[some]
     all
@@ -38,3 +41,6 @@ import ./common.chatito
     meet
     room
     hall
+    connect
+    discussion
+    sync up

@@ -93,7 +93,7 @@ def report(models, features):
                 model = model['model']
                 model.fit(X_train, y_train)
             y_pred = model.predict_proba(X_test)
-            y_pred = np.array([y[:,1] for y in y_pred]).transpose()
+            #y_pred = np.array([y[:,1] for y in y_pred]).transpose()
             temp_results, least_conf = print_model_metrics(y_test, y_pred)
             results[model_name + '_' + feature_name] = {
                 'model_name' : model_name,

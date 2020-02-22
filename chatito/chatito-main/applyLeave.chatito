@@ -1,10 +1,13 @@
 import ./common.chatito
 
-%[apply-leave]('training': '500')
-    *[30%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] on @[bookDate]
-    *[30%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] 
-    *[30%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] from @[bookDate] to @[bookDate]
-    *[10%] ~[apply?] @[typeOfLeave?] ~[leave]
+%[apply-leave]('training': '2000')
+    *[30%] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] on @[bookDate]
+    *[10%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] 
+    *[10%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] from @[bookDate] to @[bookDate]
+    *[25%] ~[apply?] @[typeOfLeave?] ~[leave]
+    *[25%] @[typeOfLeave?] ~[leave] ~[apply]
+
+
 ~[apply]
     apply
     request
@@ -12,7 +15,7 @@ import ./common.chatito
     avail
     get
     mark
-    take a 
+    take
 
 ~[leave]
     leave
