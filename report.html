@@ -1,4 +1,6 @@
-<table>
+<h1> Model Testing Report </h1> 
+<h3> Overview </h3> 
+<table border = "1">
     <tr>
         <th>Name</th>
         <th>Model</th>
@@ -12,36 +14,277 @@
         <td>svm_glove</td>
         <td>svm</td>
         <td>glove</td>
-        <td>0.73</td>
-        <td>0.94</td>
+        <td>0.74</td>
+        <td>0.95</td>
         <td>0.14</td>
-        <td>0.54</td>
+        <td>0.48</td>
     </tr>
     <tr>
         <td>rf_glove</td>
         <td>rf</td>
         <td>glove</td>
-        <td>0.7</td>
-        <td>0.93</td>
-        <td>0.16</td>
-        <td>0.63</td>
+        <td>0.57</td>
+        <td>0.9</td>
+        <td>0.17</td>
+        <td>0.82</td>
     </tr>
     <tr>
         <td>svm_tfidf</td>
         <td>svm</td>
         <td>tfidf</td>
-        <td>0.71</td>
+        <td>0.82</td>
         <td>0.94</td>
-        <td>0.15</td>
-        <td>0.64</td>
+        <td>0.12</td>
+        <td>0.45</td>
     </tr>
     <tr>
         <td>rf_tfidf</td>
         <td>rf</td>
         <td>tfidf</td>
-        <td>0.51</td>
-        <td>0.81</td>
-        <td>0.27</td>
-        <td>0.83</td>
+        <td>0.44</td>
+        <td>0.77</td>
+        <td>0.29</td>
+        <td>4.3</td>
     </tr>
+</table><h2> Least Confident Utterances </h2> 
+<h3>svm_glove</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Utterance</th>
+      <th>True Intent</th>
+      <th>apply-leave</th>
+      <th>leave-balance</th>
+      <th>schedule-meeting</th>
+      <th>Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>I want to know about rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.160060</td>
+      <td>0.815194</td>
+      <td>0.000769</td>
+      <td>7.170855</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>block my time</td>
+      <td>schedule-meeting</td>
+      <td>0.006847</td>
+      <td>0.798848</td>
+      <td>0.028476</td>
+      <td>3.558694</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>What are the steps to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.028833</td>
+      <td>0.753047</td>
+      <td>0.006885</td>
+      <td>3.546247</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>i said i want to take a break</td>
+      <td>apply-leave</td>
+      <td>0.042618</td>
+      <td>0.986878</td>
+      <td>0.000070</td>
+      <td>3.155478</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Mark Leave</td>
+      <td>apply-leave</td>
+      <td>0.043619</td>
+      <td>0.002165</td>
+      <td>0.985621</td>
+      <td>3.132265</td>
+    </tr>
+  </tbody>
+</table><h3>rf_glove</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Utterance</th>
+      <th>True Intent</th>
+      <th>apply-leave</th>
+      <th>leave-balance</th>
+      <th>schedule-meeting</th>
+      <th>Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>What are the steps to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.0</td>
+      <td>0.4</td>
+      <td>0.1</td>
+      <td>23.025851</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>can you set up a sync up</td>
+      <td>schedule-meeting</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>2.302585</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>I want to mark leaves?</td>
+      <td>apply-leave</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>0.4</td>
+      <td>2.302585</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>what is the procedure to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.1</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>2.302585</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>I want to get a day off</td>
+      <td>apply-leave</td>
+      <td>0.1</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>2.302585</td>
+    </tr>
+  </tbody>
+</table><h3>svm_tfidf</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Utterance</th>
+      <th>True Intent</th>
+      <th>apply-leave</th>
+      <th>leave-balance</th>
+      <th>schedule-meeting</th>
+      <th>Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>I want to block calendar of Raghu</td>
+      <td>schedule-meeting</td>
+      <td>0.997184</td>
+      <td>0.013097</td>
+      <td>0.020150</td>
+      <td>3.904572</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>status of leave</td>
+      <td>leave-balance</td>
+      <td>0.993998</td>
+      <td>0.026666</td>
+      <td>0.006500</td>
+      <td>3.624355</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>How can I mark leave?</td>
+      <td>apply-leave</td>
+      <td>0.030426</td>
+      <td>0.991305</td>
+      <td>0.020012</td>
+      <td>3.492453</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>can you set up a sync up</td>
+      <td>schedule-meeting</td>
+      <td>0.005990</td>
+      <td>0.996602</td>
+      <td>0.035672</td>
+      <td>3.333392</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>can you set up a connect</td>
+      <td>schedule-meeting</td>
+      <td>0.005990</td>
+      <td>0.996602</td>
+      <td>0.035672</td>
+      <td>3.333392</td>
+    </tr>
+  </tbody>
+</table><h3>rf_tfidf</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Utterance</th>
+      <th>True Intent</th>
+      <th>apply-leave</th>
+      <th>leave-balance</th>
+      <th>schedule-meeting</th>
+      <th>Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>I need to take a leave from next friday</td>
+      <td>apply-leave</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.3</td>
+      <td>23.025851</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>current year leave entitlement</td>
+      <td>leave-balance</td>
+      <td>0.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>23.025851</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>leave status</td>
+      <td>leave-balance</td>
+      <td>0.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>23.025851</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>status of leave</td>
+      <td>leave-balance</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>23.025851</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>what is my leave status</td>
+      <td>leave-balance</td>
+      <td>0.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>23.025851</td>
+    </tr>
+  </tbody>
 </table>

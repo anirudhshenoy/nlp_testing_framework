@@ -37,7 +37,7 @@ def read_test_file(filepath):
     test_data = pd.read_csv(filepath)
     test_data = test_data[test_data['Intent'].isin(['apply-leave', 'leave-balance', 'schedule-meeting'])]
     test_data.columns = ['intent', 'data']
-    (X_test, y_test) = (test_data.data, test_data.intent)
+    (X_test, y_test) = (test_data.data.values, test_data.intent.values)
     return (X_test, y_test)
 
 def preprocess(dataset):
