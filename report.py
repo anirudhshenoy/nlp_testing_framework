@@ -3,30 +3,6 @@ import numpy as np
 from prettytable import PrettyTable
 from sklearn.model_selection import GridSearchCV
 
-class Model:
-    def __init__(self, params):
-        self.params = params 
-
-    def fit(self, x, y):
-        self.params['fit'](x, y)
-
-    def predict(self, x):
-        self.params['predict'](x)
-
-    def predict_proba(self, x):
-        self.params['predict_proba'](x)
-
-def train(x, y):
-    print('training.....')
-
-def predict(x):
-    print('predicting.......')
-
-
-def calc_f1(p_and_r):
-    p, r = p_and_r
-    return (2*p*r)/(p+r)
-
 def print_table(results):
     x = PrettyTable()
     x.field_names = ["Name", "Model", "Feature", "F1", "AUC", "Accuracy"]
@@ -72,9 +48,6 @@ def run_grid_search(model, params, features, y):
     
 
 def report(models, features):
-
-    #(X_train, y_train), (X_test, y_test) = train_data, test_data
-
     results = {}
     for feature_name, feature in features.items():
         for model_name, model in models.items():
@@ -92,6 +65,8 @@ def report(models, features):
             }
 
     print_table(results)
+
+
 if __name__ == '__main__':
 
     dc = Model({
