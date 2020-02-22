@@ -1,8 +1,8 @@
 import ./common.chatito
 
-%[leave-balance]('training': '2000')
-    *[33%] ~[self?] ~[statement] ~[check] @[typeOfLeave?] ~[leave] ~[balance]
-    *[33%] ~[question?] ~[show?] @[typeOfLeave?] ~[leave] ~[balance]
+%[leave-balance]('training': '1000')
+    *[33%] ~[hi?] ~[please?] ~[self?] ~[statement] ~[check] @[typeOfLeave?] ~[leave] ~[balance]
+    *[33%] ~[hi?] ~[please?] ~[question?] ~[show?] @[typeOfLeave?] ~[leave] ~[balance]
     *[33%] how many @[typeOfLeave?] ~[leave] ~[balance]
 
 ~[apply]
@@ -32,17 +32,19 @@ import ./common.chatito
     bal
     quota
     allowance
+    available
     number remaining
     due
     still there
     still left
-    having
+    am I having
     entitlement
 
 ~[show]
     display
     show me
     show
+    want to see
 
 ~[check]
     check

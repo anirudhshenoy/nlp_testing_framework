@@ -1,6 +1,6 @@
 import ./common.chatito
 
-%[apply-leave]('training': '2000')
+%[apply-leave]('training': '1000')
     *[30%] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] on @[bookDate]
     *[10%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] 
     *[10%] ~[hi?] ~[please?] ~[self?] ~[statement?] ~[apply] for @[typeOfLeave?] ~[leave] from @[bookDate] to @[bookDate]
