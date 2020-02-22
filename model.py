@@ -14,21 +14,21 @@ from sklearn.ensemble import RandomForestClassifier
 
 def avg_glove(X):
     X_train, X_test = X
-    glove = Magnitude("vectors/glove.6B.50d.magnitude")
+    glove = Magnitude("vectors/glove.twitter.27B.100d.magnitude")
     train_vectors = []
     test_vectors = []
     for text in tqdm(X_train):
         train_vectors.append(np.average(glove.query(word_tokenize(text)), axis = 0))
     for text in tqdm(X_test):
         test_vectors.append(np.average(glove.query(word_tokenize(text)), axis = 0))
-    return (train_vectors, test_vectors)
+    return (np.array(train_vectors), np.array(test_vectors))
 
 def tfidf_vectorize(X):
     X_train, X_test = X
     tfidf = TfidfVectorizer(max_features = 300)
-    X_train = tfidf.fit_transform(X_train)
-    X_test = tfidf.transform(X_test)
-    return X_train, X_test
+    X_train_tfidf = tfidf.fit_transform(X_train)
+    X_test_tfidf = tfidf.transform(X_test)
+    return X_train_tfidf, X_test_tfidf
 
 
 def read_data(dataset_path):

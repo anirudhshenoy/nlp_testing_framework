@@ -1,6 +1,7 @@
 from sklearn.preprocessing import StandardScaler, LabelEncoder, LabelBinarizer
 from sklearn.model_selection import train_test_split
 import pandas as pd
+import numpy as np
 
 
 def featurize_and_split(dataset, features, filepath = 'dataset/training-set.csv', split_type = 'file'):
