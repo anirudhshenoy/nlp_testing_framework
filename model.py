@@ -26,7 +26,7 @@ glove = Magnitude("vectors/glove.twitter.27B.100d.magnitude")
 elmo_vecs = Magnitude("vectors/elmo_2x1024_128_2048cnn_1xhighway_weights.magnitude")
 tokenizer = Tokenizer(num_words = 300)
 
-tfidf = TfidfVectorizer()
+tfidf = TfidfVectorizer(max_features = 300)
 embed = hub.load('4')
 
 
@@ -68,22 +68,12 @@ def idf_glove(X):
     return (np.array(train_vectors), np.array(test_vectors))
 
 
-def elmo(X):
-    X_train, X_test = X
-    train_vectors = []
-    test_vectors = []
-    for text in tqdm(X_train):
-        train_vectors.append(elmo_vecs.query(text))
-    for text in tqdm(X_test):
-        test_vectors.append(elmo_vecs.query(text))
-    return (np.array(train_vectors), np.array(test_vectors))
+def pipeline_elmo(text):
+    return elmo_vecs.query(text)
 
 
-def tfidf_vectorize(X):
-    X_train, X_test = X
-    X_train_tfidf = tfidf.transform(X_train)
-    X_test_tfidf = tfidf.transform(X_test)
-    return X_train_tfidf, X_test_tfidf
+def pipeline_tfidf_vectorize(text):
+    return tfidf.transform([text]).toarray().reshape(-1)
 
 
 def read_data(dataset_path):
@@ -108,56 +98,68 @@ if __name__ == '__main__':
         'tokenizer' : tokenizer})
     features = {
         'lstm_features' : pipeline_lstm_feature,
-        #'sent_enc' : pipeline_sent_enc,
+        'sent_enc' : pipeline_sent_enc,
         #'glove' : pipeline_avg_glove,
-        #'idf_glove' : pipeline_idf_glove,
-        #'tfidf' : tfidf_vectorize,
-        #'elmo' : elmo
+        'idf_glove' : pipeline_idf_glove,
+        'tfidf' : pipeline_tfidf_vectorize,
+        'elmo' : pipeline_elmo
     }
 
     features = featurize_and_split(dataset, features)
     """
-    svm = {
-        'model' : OneVsRestClassifier(SVC(verbose = True, probability = True)),
-        #'params' : {'estimator__C' : [0.1, 1, 10, 50, 100], 'estimator__kernel': ['rbf', 'linear']}
-        'params' : None
-    }
-
-    svm_sgd = {
-        'model' : OneVsRestClassifier(SGDClassifier(loss = 'log'), n_jobs = -1),
-        'params' : {'estimator__alpha' : [1e-4, 1e-3, 1e-2, 1e-1, 1, 10, 100]},
-    } 
 
     rf = {
         'model' : OneVsRestClassifier(RandomForestClassifier()),
         'params' : {'estimator__n_estimators' : [10, 50, 100]}
     }
 
-    xgb = {
-        'model' : MultiOutputClassifier(XGBClassifier(), n_jobs= -1),
-        'params' : {'estimator__max_depth' : [2,5,7], 'estimator__n_estimators': [100]}
-    }
+
 
     lstm = {
         'model' : LSTM_Model(tokenizer),
         'params' : 'validate'
     }
+    """
+    xgb = {
+        'model' : MultiOutputClassifier(XGBClassifier(), n_jobs= -1),
+        #'params' : {'estimator__max_depth' : [2,5,7], 'estimator__n_estimators': [100]}
+        'params' : None,
+        'features_to_run' : ['sent_enc', 'idf_glove']
+
+    }
+
+    svm = {
+        'model' : OneVsRestClassifier(SVC(verbose = True, probability = True), n_jobs = -1),
+        #'params' : {'estimator__C' : [0.1, 1, 10, 50, 100], 'estimator__kernel': ['rbf', 'linear']}
+        'params' : None,
+        'features_to_run' : ['sent_enc', 'idf_glove']
+
+    }
 
     dnn = {
         'model' : DNN_Model(),
-        'params' : 'validate'
+        'params' : 'validate',
+        'features_to_run' : ['sent_vec']
     }
-    """
     cnn = {
         'model' : CNN_Model(tokenizer),
         'params' : 'validate',
+        'features_to_run' : ['lstm_features']
     }
 
 
+    svm_sgd = {
+        'model' : OneVsRestClassifier(SGDClassifier(loss = 'log'), n_jobs = -1),
+        'params' : {'estimator__alpha' : [1e-4, 1e-3, 1e-2, 1e-1, 1, 10, 100]},
+        'features_to_run' : ['tfidf', 'idf_glove', 'sent_enc']
+
+    } 
+
+
     models = {
-       'cnn' : cnn
-       #'DNN' : dnn,
-       #'log_reg' : svm_sgd,
+       'cnn' : cnn,
+       'DNN' : dnn,
+       'log_reg' : svm_sgd,
        #'svm' : svm
        #'rf' : rf
     }

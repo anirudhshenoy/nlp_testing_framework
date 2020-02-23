@@ -14,10 +14,46 @@
         <td>cnn_lstm_features</td>
         <td>cnn</td>
         <td>lstm_features</td>
-        <td>0.67</td>
-        <td>0.9</td>
-        <td>0.19</td>
-        <td>1.03</td>
+        <td>0.77</td>
+        <td>0.93</td>
+        <td>0.14</td>
+        <td>0.73</td>
+    </tr>
+    <tr>
+        <td>log_reg_sent_enc</td>
+        <td>log_reg</td>
+        <td>sent_enc</td>
+        <td>0.85</td>
+        <td>1.0</td>
+        <td>0.06</td>
+        <td>0.14</td>
+    </tr>
+    <tr>
+        <td>log_reg_idf_glove</td>
+        <td>log_reg</td>
+        <td>idf_glove</td>
+        <td>0.89</td>
+        <td>0.98</td>
+        <td>0.05</td>
+        <td>0.27</td>
+    </tr>
+    <tr>
+        <td>log_reg_tfidf</td>
+        <td>log_reg</td>
+        <td>tfidf</td>
+        <td>0.86</td>
+        <td>0.98</td>
+        <td>0.06</td>
+        <td>0.25</td>
+    </tr>
+    <tr>
+        <td>DNN_elmo</td>
+        <td>DNN</td>
+        <td>elmo</td>
+        <td>0.36</td>
+        <td>0.62</td>
+        <td>0.35</td>
+        <td>1.36</td>
     </tr>
 </table><h2> Least Confident Utterances </h2> 
 <h3>cnn_lstm_features</h3>
@@ -36,48 +72,288 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>show balance for leave</td>
+      <td>plz tell me how many leave available for me</td>
       <td>leave-balance</td>
-      <td>0.906580</td>
-      <td>0.000018</td>
-      <td>0.095697</td>
-      <td>10.951878</td>
+      <td>0.590235</td>
+      <td>0.000752</td>
+      <td>0.019078</td>
+      <td>7.193064</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>want to see leave balances</td>
-      <td>leave-balance</td>
-      <td>0.970674</td>
-      <td>0.000188</td>
-      <td>0.007524</td>
-      <td>8.578290</td>
+      <td>How can I mark leave?</td>
+      <td>apply-leave</td>
+      <td>0.001303</td>
+      <td>0.995152</td>
+      <td>0.000378</td>
+      <td>6.643149</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>show me my carry forward leaves</td>
+      <td>status of leave</td>
       <td>leave-balance</td>
-      <td>0.449784</td>
-      <td>0.000540</td>
-      <td>0.388801</td>
-      <td>7.523335</td>
+      <td>0.992806</td>
+      <td>0.001743</td>
+      <td>0.004639</td>
+      <td>6.352397</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>status of leave</td>
+      <td>show balance for leave</td>
       <td>leave-balance</td>
-      <td>0.997382</td>
-      <td>0.000727</td>
-      <td>0.002193</td>
-      <td>7.226053</td>
+      <td>0.037579</td>
+      <td>0.003129</td>
+      <td>0.866998</td>
+      <td>5.766892</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>what is my available leave balance</td>
+      <td>I want to know about rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.932925</td>
+      <td>0.023928</td>
+      <td>0.003161</td>
+      <td>5.756989</td>
+    </tr>
+  </tbody>
+</table><h3>log_reg_sent_enc</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Utterance</th>
+      <th>True Intent</th>
+      <th>apply-leave</th>
+      <th>leave-balance</th>
+      <th>schedule-meeting</th>
+      <th>Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>leave status</td>
       <td>leave-balance</td>
-      <td>0.827156</td>
-      <td>0.000896</td>
-      <td>0.013635</td>
-      <td>7.017473</td>
+      <td>0.671987</td>
+      <td>0.069930</td>
+      <td>0.014541</td>
+      <td>2.660258</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>leave bal</td>
+      <td>leave-balance</td>
+      <td>0.550037</td>
+      <td>0.098945</td>
+      <td>0.036212</td>
+      <td>2.313193</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>What are the steps to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.117866</td>
+      <td>0.171663</td>
+      <td>0.031256</td>
+      <td>2.138206</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>what is the procedure to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.217221</td>
+      <td>0.116243</td>
+      <td>0.028643</td>
+      <td>1.526838</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>status of leave</td>
+      <td>leave-balance</td>
+      <td>0.552108</td>
+      <td>0.227543</td>
+      <td>0.004575</td>
+      <td>1.480416</td>
+    </tr>
+  </tbody>
+</table><h3>log_reg_idf_glove</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Utterance</th>
+      <th>True Intent</th>
+      <th>apply-leave</th>
+      <th>leave-balance</th>
+      <th>schedule-meeting</th>
+      <th>Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>I want to know about rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.053165</td>
+      <td>0.928869</td>
+      <td>0.038317</td>
+      <td>3.261874</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Calendar booking</td>
+      <td>schedule-meeting</td>
+      <td>0.686281</td>
+      <td>0.003659</td>
+      <td>0.096369</td>
+      <td>2.339576</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Book calendar of gaurav</td>
+      <td>schedule-meeting</td>
+      <td>0.110429</td>
+      <td>0.536483</td>
+      <td>0.101269</td>
+      <td>2.289975</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>How can I mark leave?</td>
+      <td>apply-leave</td>
+      <td>0.209775</td>
+      <td>0.537260</td>
+      <td>0.058672</td>
+      <td>1.561718</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>leave status</td>
+      <td>leave-balance</td>
+      <td>0.875283</td>
+      <td>0.236866</td>
+      <td>0.001594</td>
+      <td>1.440263</td>
+    </tr>
+  </tbody>
+</table><h3>log_reg_tfidf</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Utterance</th>
+      <th>True Intent</th>
+      <th>apply-leave</th>
+      <th>leave-balance</th>
+      <th>schedule-meeting</th>
+      <th>Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>status of leave</td>
+      <td>leave-balance</td>
+      <td>0.925464</td>
+      <td>0.022823</td>
+      <td>0.014599</td>
+      <td>3.779991</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>I want to know about rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.010567</td>
+      <td>0.819578</td>
+      <td>0.077986</td>
+      <td>2.551223</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>outstanding leave count</td>
+      <td>leave-balance</td>
+      <td>0.863830</td>
+      <td>0.098434</td>
+      <td>0.006839</td>
+      <td>2.318373</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>what is my leave status</td>
+      <td>leave-balance</td>
+      <td>0.863830</td>
+      <td>0.098434</td>
+      <td>0.006839</td>
+      <td>2.318373</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>What is my outstanding leave count</td>
+      <td>leave-balance</td>
+      <td>0.863830</td>
+      <td>0.098434</td>
+      <td>0.006839</td>
+      <td>2.318373</td>
+    </tr>
+  </tbody>
+</table><h3>DNN_elmo</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Utterance</th>
+      <th>True Intent</th>
+      <th>apply-leave</th>
+      <th>leave-balance</th>
+      <th>schedule-meeting</th>
+      <th>Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>search for @rajdeep</td>
+      <td>schedule-meeting</td>
+      <td>0.948257</td>
+      <td>0.235852</td>
+      <td>0.000603</td>
+      <td>7.414035</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>block my calendar tomorrow</td>
+      <td>schedule-meeting</td>
+      <td>0.918711</td>
+      <td>0.093480</td>
+      <td>0.005622</td>
+      <td>5.181043</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>leave balance</td>
+      <td>leave-balance</td>
+      <td>0.955680</td>
+      <td>0.009589</td>
+      <td>0.024554</td>
+      <td>4.647180</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Calendar booking</td>
+      <td>schedule-meeting</td>
+      <td>0.790298</td>
+      <td>0.259252</td>
+      <td>0.009678</td>
+      <td>4.637901</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Show my CEO's profile data</td>
+      <td>schedule-meeting</td>
+      <td>0.316179</td>
+      <td>0.734286</td>
+      <td>0.015654</td>
+      <td>4.157022</td>
     </tr>
   </tbody>
 </table>

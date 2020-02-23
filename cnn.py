@@ -17,23 +17,24 @@ class CNN_Model:
 
         inputs = Input(shape=(MAX_SEQUENCE_LENGTH,))
         embedding = Embedding(num_words,
-            100,
+            50,
             embeddings_initializer = Constant(embedding_matrix),
             input_length = MAX_SEQUENCE_LENGTH,
             trainable = False)(inputs)
         conv = Conv1D(filters=64, kernel_size=8, activation='relu')(embedding)
-        drop = Dropout(0.4)(conv)
+        drop = Dropout(0.5)(conv)
         pool = MaxPooling1D(pool_size=2)(drop)
         flat = Flatten()(pool)
         dense1 = Dense(128, activation='relu')(flat)
-        outputs = Dense(3, activation='sigmoid')(dense1)
+        drop = Dropout(0.4)(dense1)
+        outputs = Dense(3, activation='sigmoid')(drop)
         self.model = Model(inputs=[inputs], outputs=outputs)
         # compile
         self.model.compile(loss = 'binary_crossentropy', metrics = ['accuracy'], optimizer = 'adam')
 
     def _build_matrix(self, tokenizer):
-        vector = Magnitude('vectors/glove.twitter.27B.100d.magnitude')
-        GLOVE_VECTOR_DIMENSION = 100
+        vector = Magnitude('vectors/glove.6B.50d.magnitude')
+        GLOVE_VECTOR_DIMENSION = 50
         MAX_NUM_WORDS = 300
         word_index = tokenizer.word_index
         num_words = min(MAX_NUM_WORDS, len(word_index)) + 1

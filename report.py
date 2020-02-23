@@ -92,6 +92,8 @@ def report(models, features):
     for feature_name, feature in features.items():
         for model_name, model in models.items():
             #model.fit(X_train, y_train)
+            if feature_name not in model['features_to_run']:
+                continue
             (X_train, y_train), (X_test, y_test) = feature['feature_data']
             if model['params'] == 'validate':
                 model = model['model']
