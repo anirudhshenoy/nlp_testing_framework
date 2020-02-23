@@ -22,7 +22,6 @@ from dnn import DNN_Model
 from cnn import CNN_Model
 
 
-
 glove = Magnitude("vectors/glove.twitter.27B.100d.magnitude")
 elmo_vecs = Magnitude("vectors/elmo_2x1024_128_2048cnn_1xhighway_weights.magnitude")
 tokenizer = Tokenizer(num_words = 300)
@@ -32,8 +31,9 @@ embed = hub.load('4')
 
 
 
+
 def pipeline_lstm_feature(text):
-    return pad_sequences(tokenizer.texts_to_sequences([text]), maxlen=30).reshape(-1)
+    return pad_sequences(tokenizer.texts_to_sequences([text]), maxlen=15).reshape(-1)
 
 
 def pipeline_avg_glove(text):
@@ -107,8 +107,8 @@ if __name__ == '__main__':
         'tfidf' : tfidf,
         'tokenizer' : tokenizer})
     features = {
-        #'lstm_features' : pipeline_lstm_feature,
-        'sent_enc' : pipeline_sent_enc,
+        'lstm_features' : pipeline_lstm_feature,
+        #'sent_enc' : pipeline_sent_enc,
         #'glove' : pipeline_avg_glove,
         #'idf_glove' : pipeline_idf_glove,
         #'tfidf' : tfidf_vectorize,
@@ -116,6 +116,7 @@ if __name__ == '__main__':
     }
 
     features = featurize_and_split(dataset, features)
+    """
     svm = {
         'model' : OneVsRestClassifier(SVC(verbose = True, probability = True)),
         #'params' : {'estimator__C' : [0.1, 1, 10, 50, 100], 'estimator__kernel': ['rbf', 'linear']}
@@ -124,7 +125,7 @@ if __name__ == '__main__':
 
     svm_sgd = {
         'model' : OneVsRestClassifier(SGDClassifier(loss = 'log'), n_jobs = -1),
-        'params' : {'estimator__alpha' : [1e-4, 1e-3, 1e-2, 1e-1, 1, 10, 100]}
+        'params' : {'estimator__alpha' : [1e-4, 1e-3, 1e-2, 1e-1, 1, 10, 100]},
     } 
 
     rf = {
@@ -146,7 +147,7 @@ if __name__ == '__main__':
         'model' : DNN_Model(),
         'params' : 'validate'
     }
-
+    """
     cnn = {
         'model' : CNN_Model(tokenizer),
         'params' : 'validate',
@@ -154,10 +155,10 @@ if __name__ == '__main__':
 
 
     models = {
-       #'cnn' : cnn
-       'DNN' : dnn,
-       'log_reg' : svm_sgd,
-       'svm' : svm
+       'cnn' : cnn
+       #'DNN' : dnn,
+       #'log_reg' : svm_sgd,
+       #'svm' : svm
        #'rf' : rf
     }
 

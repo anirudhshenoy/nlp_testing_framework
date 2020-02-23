@@ -5,6 +5,12 @@ from prettytable import PrettyTable
 from sklearn.model_selection import GridSearchCV
 from utility import read_test_file
 from sklearn.preprocessing import LabelBinarizer
+import spacy
+nlp = spacy.load('en_core_web_sm')
+
+def negation_model(text):
+    doc = nlp(text)
+    return [tok for tok in doc if tok.dep_ == 'neg']
 
 def print_table(results):
     x = PrettyTable()
@@ -105,7 +111,7 @@ def report(models, features):
                 'featurizer' : feature['featurizer'],
                 'class_labels' : feature['class_labels'],
                 'model' : model,
-                'least_conf' : least_conf
+                'least_conf' : least_conf,
             }
 
     print_table(results)
@@ -118,12 +124,14 @@ def run_test(models, features):
         for model_name, model in models.items():
             input_feature = model['featurizer'](user_input).reshape(1,-1)
             probs = model['model'].predict_proba(input_feature)
-            rows.append([model['model_name']] + [model['feature']] + [str(round(p,3)) for p in probs[0]])
+            negative_words = negation_model(user_input)
+            neg_flag = 'True' if negative_words else 'False'
+            rows.append([model['model_name']] + [model['feature']] + [str(round(p,3)) for p in probs[0]] + [neg_flag])
         print_test_table(rows, model['class_labels'])
 
 def print_test_table(rows, classes):
     x = PrettyTable()
-    x.field_names = ['Model', 'Feature'] + list(classes)
+    x.field_names = ['Model', 'Feature'] + list(classes) + ['Negation']
     for row in rows:
         x.add_row(row)
     print(x)

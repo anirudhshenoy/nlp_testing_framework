@@ -12,24 +12,24 @@ class CNN_Model:
     def __init__(self, tokenizer):    
         embedding_matrix =  self._build_matrix(tokenizer)
 
-        MAX_SEQUENCE_LENGTH = 30
+        MAX_SEQUENCE_LENGTH = 15
         num_words = embedding_matrix.shape[0]
 
-        inputs = Input(shape=(30,))
+        inputs = Input(shape=(MAX_SEQUENCE_LENGTH,))
         embedding = Embedding(num_words,
             100,
             embeddings_initializer = Constant(embedding_matrix),
             input_length = MAX_SEQUENCE_LENGTH,
             trainable = False)(inputs)
-        conv = Conv1D(filters=64, kernel_size=16, activation='relu')(embedding)
-        drop = Dropout(0.5)(conv)
+        conv = Conv1D(filters=64, kernel_size=8, activation='relu')(embedding)
+        drop = Dropout(0.4)(conv)
         pool = MaxPooling1D(pool_size=2)(drop)
         flat = Flatten()(pool)
-        dense1 = Dense(10, activation='relu')(flat)
+        dense1 = Dense(128, activation='relu')(flat)
         outputs = Dense(3, activation='sigmoid')(dense1)
         self.model = Model(inputs=[inputs], outputs=outputs)
         # compile
-        self.model.compile(loss = 'binary_crossentropy', metrics = ['acc'], optimizer = Adam(lr = 1e-4))
+        self.model.compile(loss = 'binary_crossentropy', metrics = ['accuracy'], optimizer = 'adam')
 
     def _build_matrix(self, tokenizer):
         vector = Magnitude('vectors/glove.twitter.27B.100d.magnitude')
@@ -51,7 +51,7 @@ class CNN_Model:
 
     def fit(self, x, y, x_test, y_test):
         self.model.fit(x, y,
-            batch_size = 128,
+            batch_size = 64,
             epochs = 40,
             verbose = 1,
             validation_data = (x_test, y_test))
