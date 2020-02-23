@@ -97,8 +97,9 @@ if __name__ == '__main__':
     dataset = read_data('dataset/mainModel.csv')
     dataset = preprocess(dataset, {'tfidf' : tfidf})
     features = {
-        'sent_enc' : pipeline_sent_enc
-        #'glove' : idf_glove,
+        'sent_enc' : pipeline_sent_enc,
+        'glove' : pipeline_avg_glove,
+        'idf_glove' : pipeline_idf_glove,
         #'tfidf' : tfidf_vectorize,
         #'elmo' : elmo
     }

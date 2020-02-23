@@ -33,7 +33,8 @@ def featurize_and_split(dataset, features, filepath = 'dataset/training-set.csv'
         X_train_feat, X_test_feat = featurize((X_train, X_test), feature)
         features[feature_name] = {
             'featurizer' : feature,
-            'feature_data' : ((X_train_feat, y_train), (X_test_feat, y_test))
+            'feature_data' : ((X_train_feat, y_train), (X_test_feat, y_test)),
+            'class_labels' : le.classes_
         }
     return features 
 

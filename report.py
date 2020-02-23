@@ -102,19 +102,34 @@ def report(models, features):
                 'model_name' : model_name,
                 'metrics' : temp_results,
                 'feature' : feature_name,
+                'featurizer' : feature['featurizer'],
+                'class_labels' : feature['class_labels'],
                 'model' : model,
                 'least_conf' : least_conf
             }
 
     print_table(results)
-    run_test(models, features)
+    run_test(results, features)
 
 def run_test(models, features):
     while True:
         user_input = input()
-        for feature_name, feature in features.items():
-            for model_name, model in models.items():
-                print(model['model'].predict(feature['featurizer'](user_input)))
+        rows = []
+        for model_name, model in models.items():
+            input_feature = model['featurizer'](user_input).reshape(1,-1)
+            probs = model['model'].predict_proba(input_feature)
+            rows.append([model['model_name']] + [model['feature']] + [str(round(p,3)) for p in probs[0]])
+        print_test_table(rows, model['class_labels'])
+
+def print_test_table(rows, classes):
+    x = PrettyTable()
+    x.field_names = ['Model', 'Feature'] + list(classes)
+    for row in rows:
+        x.add_row(row)
+    print(x)
+    print('\n')
+   
+
 
 if __name__ == '__main__':
 
