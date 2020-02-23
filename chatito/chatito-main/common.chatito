@@ -26,14 +26,15 @@
 ~[explain]
     explain
     suggest
-    procedure
+    procedure to
     process
-    steps
+    steps to
 
 ~[question]
     how to
     where to
     can you
+    what is
 
 @[bookTime]
     ~[12hour] ~[timePeriods?]

@@ -107,7 +107,14 @@ def report(models, features):
             }
 
     print_table(results)
+    run_test(models, features)
 
+def run_test(models, features):
+    while True:
+        user_input = input()
+        for feature_name, feature in features.items():
+            for model_name, model in models.items():
+                print(model['model'].predict(feature['featurizer'](user_input)))
 
 if __name__ == '__main__':
 

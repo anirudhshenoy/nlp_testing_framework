@@ -11,103 +11,16 @@
         <th>Log Loss</th>
     </tr>
     <tr>
-        <td>svm_glove</td>
+        <td>svm_sent_enc</td>
         <td>svm</td>
-        <td>glove</td>
-        <td>0.91</td>
-        <td>0.98</td>
-        <td>0.05</td>
-        <td>0.28</td>
-    </tr>
-    <tr>
-        <td>rf_glove</td>
-        <td>rf</td>
-        <td>glove</td>
-        <td>0.84</td>
-        <td>0.98</td>
-        <td>0.07</td>
-        <td>0.43</td>
-    </tr>
-    <tr>
-        <td>svm_elmo</td>
-        <td>svm</td>
-        <td>elmo</td>
-        <td>0.39</td>
-        <td>0.61</td>
-        <td>0.42</td>
-        <td>1.87</td>
-    </tr>
-    <tr>
-        <td>rf_elmo</td>
-        <td>rf</td>
-        <td>elmo</td>
-        <td>0.39</td>
-        <td>0.61</td>
-        <td>0.34</td>
-        <td>1.66</td>
+        <td>sent_enc</td>
+        <td>0.9</td>
+        <td>1.0</td>
+        <td>0.04</td>
+        <td>0.15</td>
     </tr>
 </table><h2> Least Confident Utterances </h2> 
-<h3>svm_glove</h3>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Utterance</th>
-      <th>True Intent</th>
-      <th>apply-leave</th>
-      <th>leave-balance</th>
-      <th>schedule-meeting</th>
-      <th>Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>I want to know about rajesh</td>
-      <td>schedule-meeting</td>
-      <td>0.060212</td>
-      <td>0.945692</td>
-      <td>0.037835</td>
-      <td>3.274525</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Calendar booking</td>
-      <td>schedule-meeting</td>
-      <td>0.709072</td>
-      <td>0.005054</td>
-      <td>0.097303</td>
-      <td>2.329921</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Book calendar of gaurav</td>
-      <td>schedule-meeting</td>
-      <td>0.124338</td>
-      <td>0.608599</td>
-      <td>0.099983</td>
-      <td>2.302757</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>How can I mark leave?</td>
-      <td>apply-leave</td>
-      <td>0.236360</td>
-      <td>0.612110</td>
-      <td>0.059572</td>
-      <td>1.442399</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>leave status</td>
-      <td>leave-balance</td>
-      <td>0.889770</td>
-      <td>0.296369</td>
-      <td>0.001648</td>
-      <td>1.216151</td>
-    </tr>
-  </tbody>
-</table><h3>rf_glove</h3>
+<h3>svm_sent_enc</h3>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -125,166 +38,46 @@
       <th>0</th>
       <td>leave status</td>
       <td>leave-balance</td>
-      <td>0.72</td>
-      <td>0.18</td>
-      <td>0.16</td>
-      <td>1.714798</td>
+      <td>0.722790</td>
+      <td>0.105525</td>
+      <td>0.014854</td>
+      <td>2.248805</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>leave bal</td>
+      <td>leave-balance</td>
+      <td>0.625771</td>
+      <td>0.137583</td>
+      <td>0.034070</td>
+      <td>1.983528</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>What are the steps to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.158918</td>
+      <td>0.227604</td>
+      <td>0.032360</td>
+      <td>1.839370</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>what is the procedure to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.280320</td>
+      <td>0.156984</td>
+      <td>0.029566</td>
+      <td>1.271824</td>
+    </tr>
+    <tr>
+      <th>4</th>
       <td>I want to know about rajesh</td>
       <td>schedule-meeting</td>
-      <td>0.10</td>
-      <td>0.87</td>
-      <td>0.19</td>
-      <td>1.660731</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Book calendar of gaurav</td>
-      <td>schedule-meeting</td>
-      <td>0.38</td>
-      <td>0.38</td>
-      <td>0.22</td>
-      <td>1.514128</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>How can I mark leave?</td>
-      <td>apply-leave</td>
-      <td>0.31</td>
-      <td>0.26</td>
-      <td>0.07</td>
-      <td>1.171183</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>I want to get leaves?</td>
-      <td>apply-leave</td>
-      <td>0.33</td>
-      <td>0.75</td>
-      <td>0.05</td>
-      <td>1.108663</td>
-    </tr>
-  </tbody>
-</table><h3>svm_elmo</h3>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Utterance</th>
-      <th>True Intent</th>
-      <th>apply-leave</th>
-      <th>leave-balance</th>
-      <th>schedule-meeting</th>
-      <th>Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>search for @rajdeep</td>
-      <td>schedule-meeting</td>
-      <td>0.993048</td>
-      <td>0.523205</td>
-      <td>0.000020</td>
-      <td>10.826075</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Calendar booking</td>
-      <td>schedule-meeting</td>
-      <td>0.916085</td>
-      <td>0.480860</td>
-      <td>0.000418</td>
-      <td>7.781148</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>block my calendar tomorrow</td>
-      <td>schedule-meeting</td>
-      <td>0.966692</td>
-      <td>0.165931</td>
-      <td>0.000861</td>
-      <td>7.057449</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>How to block calendar of Kishore</td>
-      <td>schedule-meeting</td>
-      <td>0.619263</td>
-      <td>0.908169</td>
-      <td>0.000990</td>
-      <td>6.917489</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Show my CEO's profile data</td>
-      <td>schedule-meeting</td>
-      <td>0.647880</td>
-      <td>0.908881</td>
-      <td>0.000998</td>
-      <td>6.909927</td>
-    </tr>
-  </tbody>
-</table><h3>rf_elmo</h3>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Utterance</th>
-      <th>True Intent</th>
-      <th>apply-leave</th>
-      <th>leave-balance</th>
-      <th>schedule-meeting</th>
-      <th>Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Book calendar of gaurav</td>
-      <td>schedule-meeting</td>
-      <td>0.30</td>
-      <td>0.72</td>
-      <td>0.00</td>
-      <td>23.025851</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>How to block calendar of Kishore</td>
-      <td>schedule-meeting</td>
-      <td>0.30</td>
-      <td>0.75</td>
-      <td>0.00</td>
-      <td>23.025851</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Join a discussion with gaurav</td>
-      <td>schedule-meeting</td>
-      <td>0.15</td>
-      <td>0.79</td>
-      <td>0.01</td>
-      <td>4.605170</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>I want to know about rajesh</td>
-      <td>schedule-meeting</td>
-      <td>0.06</td>
-      <td>0.89</td>
-      <td>0.01</td>
-      <td>4.605170</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Schedule a meet with Shubhi</td>
-      <td>schedule-meeting</td>
-      <td>0.40</td>
-      <td>0.60</td>
-      <td>0.02</td>
-      <td>3.912023</td>
+      <td>0.025864</td>
+      <td>0.263795</td>
+      <td>0.297312</td>
+      <td>1.212975</td>
     </tr>
   </tbody>
 </table>
