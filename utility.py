@@ -13,7 +13,6 @@ def featurize(X, pipeline):
         train_vectors.append(pipeline(text))
     for text in tqdm(X_test):
         test_vectors.append(pipeline(text))
-
     return (np.array(train_vectors), np.array(test_vectors))
 
 
@@ -59,6 +58,8 @@ def preprocess(dataset, params):
     print('Preprocessing...')
     X, y = dataset
     params['tfidf'].fit(X)
+    params['tokenizer'].fit_on_texts(X)
+
     # Preprocessing pipeline
     """
     scaler = StandardScaler()

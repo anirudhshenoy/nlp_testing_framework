@@ -11,34 +11,34 @@
         <th>Log Loss</th>
     </tr>
     <tr>
-        <td>svm_sent_enc</td>
-        <td>svm</td>
+        <td>DNN_sent_enc</td>
+        <td>DNN</td>
         <td>sent_enc</td>
-        <td>0.88</td>
+        <td>0.92</td>
         <td>1.0</td>
-        <td>0.05</td>
+        <td>0.04</td>
         <td>0.14</td>
     </tr>
     <tr>
-        <td>svm_glove</td>
-        <td>svm</td>
-        <td>glove</td>
-        <td>0.78</td>
-        <td>0.96</td>
-        <td>0.1</td>
-        <td>0.39</td>
+        <td>log_reg_sent_enc</td>
+        <td>log_reg</td>
+        <td>sent_enc</td>
+        <td>0.86</td>
+        <td>1.0</td>
+        <td>0.06</td>
+        <td>0.15</td>
     </tr>
     <tr>
-        <td>svm_idf_glove</td>
+        <td>svm_sent_enc</td>
         <td>svm</td>
-        <td>idf_glove</td>
+        <td>sent_enc</td>
         <td>0.92</td>
-        <td>0.98</td>
-        <td>0.05</td>
-        <td>0.29</td>
+        <td>1.0</td>
+        <td>0.03</td>
+        <td>0.11</td>
     </tr>
 </table><h2> Least Confident Utterances </h2> 
-<h3>svm_sent_enc</h3>
+<h3>DNN_sent_enc</h3>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -56,49 +56,49 @@
       <th>0</th>
       <td>leave status</td>
       <td>leave-balance</td>
-      <td>0.704734</td>
-      <td>0.077608</td>
-      <td>0.012576</td>
-      <td>2.556084</td>
+      <td>0.890528</td>
+      <td>0.069198</td>
+      <td>0.001473</td>
+      <td>2.670782</td>
     </tr>
     <tr>
       <th>1</th>
       <td>leave bal</td>
       <td>leave-balance</td>
-      <td>0.599732</td>
-      <td>0.102717</td>
-      <td>0.030630</td>
-      <td>2.275781</td>
+      <td>0.711263</td>
+      <td>0.078258</td>
+      <td>0.007471</td>
+      <td>2.547745</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>What are the steps to apply leave</td>
-      <td>apply-leave</td>
-      <td>0.141323</td>
-      <td>0.188626</td>
-      <td>0.028132</td>
-      <td>1.956704</td>
+      <td>I want to know about rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.049553</td>
+      <td>0.364088</td>
+      <td>0.143398</td>
+      <td>1.942134</td>
     </tr>
     <tr>
       <th>3</th>
       <td>status of leave</td>
       <td>leave-balance</td>
-      <td>0.590678</td>
-      <td>0.246880</td>
-      <td>0.003959</td>
-      <td>1.398853</td>
+      <td>0.688045</td>
+      <td>0.206387</td>
+      <td>0.000484</td>
+      <td>1.578003</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>what is the procedure to apply leave</td>
+      <td>What are the steps to apply leave</td>
       <td>apply-leave</td>
-      <td>0.262161</td>
-      <td>0.123739</td>
-      <td>0.026141</td>
-      <td>1.338795</td>
+      <td>0.279221</td>
+      <td>0.189545</td>
+      <td>0.007371</td>
+      <td>1.275753</td>
     </tr>
   </tbody>
-</table><h3>svm_glove</h3>
+</table><h3>log_reg_sent_enc</h3>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -114,51 +114,51 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>I want to know about rajesh</td>
-      <td>schedule-meeting</td>
-      <td>0.061418</td>
-      <td>0.857000</td>
-      <td>0.036577</td>
-      <td>3.308344</td>
+      <td>leave status</td>
+      <td>leave-balance</td>
+      <td>0.741182</td>
+      <td>0.077029</td>
+      <td>0.013725</td>
+      <td>2.563567</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>How can I mark leave?</td>
-      <td>apply-leave</td>
-      <td>0.066418</td>
-      <td>0.774941</td>
-      <td>0.073927</td>
-      <td>2.711783</td>
+      <td>leave bal</td>
+      <td>leave-balance</td>
+      <td>0.657255</td>
+      <td>0.099405</td>
+      <td>0.033154</td>
+      <td>2.308553</td>
     </tr>
     <tr>
       <th>2</th>
       <td>What are the steps to apply leave</td>
       <td>apply-leave</td>
-      <td>0.085972</td>
-      <td>0.536931</td>
-      <td>0.069135</td>
-      <td>2.453739</td>
+      <td>0.174735</td>
+      <td>0.165563</td>
+      <td>0.030559</td>
+      <td>1.744486</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>show balance for leave</td>
+      <td>status of leave</td>
       <td>leave-balance</td>
-      <td>0.469675</td>
-      <td>0.157748</td>
-      <td>0.050567</td>
-      <td>1.846756</td>
+      <td>0.640675</td>
+      <td>0.242278</td>
+      <td>0.004319</td>
+      <td>1.417670</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>I want to get leaves?</td>
-      <td>apply-leave</td>
-      <td>0.164372</td>
-      <td>0.707974</td>
-      <td>0.029283</td>
-      <td>1.805622</td>
+      <td>outstanding leave balance</td>
+      <td>leave-balance</td>
+      <td>0.086238</td>
+      <td>0.271553</td>
+      <td>0.066669</td>
+      <td>1.303597</td>
     </tr>
   </tbody>
-</table><h3>svm_idf_glove</h3>
+</table><h3>svm_sent_enc</h3>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -174,48 +174,48 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>I want to know about rajesh</td>
-      <td>schedule-meeting</td>
-      <td>0.072695</td>
-      <td>0.942106</td>
-      <td>0.069077</td>
-      <td>2.672534</td>
+      <td>leave status</td>
+      <td>leave-balance</td>
+      <td>0.940630</td>
+      <td>0.023533</td>
+      <td>0.001377</td>
+      <td>3.749357</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Calendar booking</td>
-      <td>schedule-meeting</td>
-      <td>0.725560</td>
-      <td>0.004596</td>
-      <td>0.157701</td>
-      <td>1.847056</td>
+      <td>What are the steps to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.027726</td>
+      <td>0.235249</td>
+      <td>0.007652</td>
+      <td>3.585388</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Book calendar of gaurav</td>
-      <td>schedule-meeting</td>
-      <td>0.140445</td>
-      <td>0.579657</td>
-      <td>0.173753</td>
-      <td>1.750118</td>
+      <td>what is the procedure to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.054331</td>
+      <td>0.127744</td>
+      <td>0.009058</td>
+      <td>2.912668</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>How can I mark leave?</td>
-      <td>apply-leave</td>
-      <td>0.268324</td>
-      <td>0.591576</td>
-      <td>0.106788</td>
-      <td>1.315561</td>
+      <td>status of leave</td>
+      <td>leave-balance</td>
+      <td>0.730175</td>
+      <td>0.207906</td>
+      <td>0.000531</td>
+      <td>1.570670</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>leave status</td>
-      <td>leave-balance</td>
-      <td>0.903578</td>
-      <td>0.287912</td>
-      <td>0.003064</td>
-      <td>1.245101</td>
+      <td>I want to know about rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.001137</td>
+      <td>0.253481</td>
+      <td>0.215728</td>
+      <td>1.533738</td>
     </tr>
   </tbody>
 </table>
