@@ -11,112 +11,16 @@
         <th>Log Loss</th>
     </tr>
     <tr>
-        <td>cnn_lstm_features</td>
-        <td>cnn</td>
-        <td>lstm_features</td>
-        <td>0.77</td>
-        <td>0.93</td>
-        <td>0.14</td>
-        <td>0.73</td>
-    </tr>
-    <tr>
-        <td>log_reg_sent_enc</td>
-        <td>log_reg</td>
-        <td>sent_enc</td>
-        <td>0.85</td>
-        <td>1.0</td>
-        <td>0.06</td>
-        <td>0.14</td>
-    </tr>
-    <tr>
-        <td>log_reg_idf_glove</td>
-        <td>log_reg</td>
-        <td>idf_glove</td>
-        <td>0.89</td>
-        <td>0.98</td>
-        <td>0.05</td>
-        <td>0.27</td>
-    </tr>
-    <tr>
-        <td>log_reg_tfidf</td>
-        <td>log_reg</td>
-        <td>tfidf</td>
-        <td>0.86</td>
-        <td>0.98</td>
-        <td>0.06</td>
-        <td>0.25</td>
-    </tr>
-    <tr>
-        <td>DNN_elmo</td>
+        <td>DNN_sent_enc</td>
         <td>DNN</td>
-        <td>elmo</td>
-        <td>0.36</td>
-        <td>0.62</td>
-        <td>0.35</td>
-        <td>1.36</td>
+        <td>sent_enc</td>
+        <td>0.92</td>
+        <td>1.0</td>
+        <td>0.04</td>
+        <td>0.14</td>
     </tr>
 </table><h2> Least Confident Utterances </h2> 
-<h3>cnn_lstm_features</h3>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Utterance</th>
-      <th>True Intent</th>
-      <th>apply-leave</th>
-      <th>leave-balance</th>
-      <th>schedule-meeting</th>
-      <th>Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>plz tell me how many leave available for me</td>
-      <td>leave-balance</td>
-      <td>0.590235</td>
-      <td>0.000752</td>
-      <td>0.019078</td>
-      <td>7.193064</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>How can I mark leave?</td>
-      <td>apply-leave</td>
-      <td>0.001303</td>
-      <td>0.995152</td>
-      <td>0.000378</td>
-      <td>6.643149</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>status of leave</td>
-      <td>leave-balance</td>
-      <td>0.992806</td>
-      <td>0.001743</td>
-      <td>0.004639</td>
-      <td>6.352397</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>show balance for leave</td>
-      <td>leave-balance</td>
-      <td>0.037579</td>
-      <td>0.003129</td>
-      <td>0.866998</td>
-      <td>5.766892</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>I want to know about rajesh</td>
-      <td>schedule-meeting</td>
-      <td>0.932925</td>
-      <td>0.023928</td>
-      <td>0.003161</td>
-      <td>5.756989</td>
-    </tr>
-  </tbody>
-</table><h3>log_reg_sent_enc</h3>
+<h3>DNN_sent_enc</h3>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -134,226 +38,1234 @@
       <th>0</th>
       <td>leave status</td>
       <td>leave-balance</td>
-      <td>0.671987</td>
-      <td>0.069930</td>
-      <td>0.014541</td>
-      <td>2.660258</td>
+      <td>0.894600</td>
+      <td>0.069077</td>
+      <td>0.001383</td>
+      <td>2.672537</td>
     </tr>
     <tr>
       <th>1</th>
       <td>leave bal</td>
       <td>leave-balance</td>
-      <td>0.550037</td>
-      <td>0.098945</td>
-      <td>0.036212</td>
-      <td>2.313193</td>
+      <td>0.714845</td>
+      <td>0.076109</td>
+      <td>0.007826</td>
+      <td>2.575584</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>I want to know about rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.052668</td>
+      <td>0.352738</td>
+      <td>0.140239</td>
+      <td>1.964407</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>status of leave</td>
+      <td>leave-balance</td>
+      <td>0.702774</td>
+      <td>0.218493</td>
+      <td>0.000467</td>
+      <td>1.520999</td>
+    </tr>
+    <tr>
+      <th>4</th>
       <td>What are the steps to apply leave</td>
       <td>apply-leave</td>
-      <td>0.117866</td>
-      <td>0.171663</td>
-      <td>0.031256</td>
-      <td>2.138206</td>
+      <td>0.271880</td>
+      <td>0.183753</td>
+      <td>0.007015</td>
+      <td>1.302395</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>what is the procedure to apply leave</td>
-      <td>apply-leave</td>
-      <td>0.217221</td>
-      <td>0.116243</td>
-      <td>0.028643</td>
-      <td>1.526838</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>status of leave</td>
-      <td>leave-balance</td>
-      <td>0.552108</td>
-      <td>0.227543</td>
-      <td>0.004575</td>
-      <td>1.480416</td>
-    </tr>
-  </tbody>
-</table><h3>log_reg_idf_glove</h3>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Utterance</th>
-      <th>True Intent</th>
-      <th>apply-leave</th>
-      <th>leave-balance</th>
-      <th>schedule-meeting</th>
-      <th>Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>I want to know about rajesh</td>
+      <th>5</th>
+      <td>i want to schedule a meeting from jan 2019 to jan 2019</td>
       <td>schedule-meeting</td>
-      <td>0.053165</td>
-      <td>0.928869</td>
-      <td>0.038317</td>
-      <td>3.261874</td>
+      <td>0.611286</td>
+      <td>0.007310</td>
+      <td>0.298435</td>
+      <td>1.209203</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Calendar booking</td>
-      <td>schedule-meeting</td>
-      <td>0.686281</td>
-      <td>0.003659</td>
-      <td>0.096369</td>
-      <td>2.339576</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Book calendar of gaurav</td>
-      <td>schedule-meeting</td>
-      <td>0.110429</td>
-      <td>0.536483</td>
-      <td>0.101269</td>
-      <td>2.289975</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>How can I mark leave?</td>
-      <td>apply-leave</td>
-      <td>0.209775</td>
-      <td>0.537260</td>
-      <td>0.058672</td>
-      <td>1.561718</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>leave status</td>
+      <th>6</th>
+      <td>show leave bal</td>
       <td>leave-balance</td>
-      <td>0.875283</td>
-      <td>0.236866</td>
-      <td>0.001594</td>
-      <td>1.440263</td>
-    </tr>
-  </tbody>
-</table><h3>log_reg_tfidf</h3>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Utterance</th>
-      <th>True Intent</th>
-      <th>apply-leave</th>
-      <th>leave-balance</th>
-      <th>schedule-meeting</th>
-      <th>Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>status of leave</td>
-      <td>leave-balance</td>
-      <td>0.925464</td>
-      <td>0.022823</td>
-      <td>0.014599</td>
-      <td>3.779991</td>
+      <td>0.026667</td>
+      <td>0.355993</td>
+      <td>0.029022</td>
+      <td>1.032844</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>I want to know about rajesh</td>
-      <td>schedule-meeting</td>
-      <td>0.010567</td>
-      <td>0.819578</td>
-      <td>0.077986</td>
-      <td>2.551223</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>outstanding leave count</td>
-      <td>leave-balance</td>
-      <td>0.863830</td>
-      <td>0.098434</td>
-      <td>0.006839</td>
-      <td>2.318373</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>what is my leave status</td>
-      <td>leave-balance</td>
-      <td>0.863830</td>
-      <td>0.098434</td>
-      <td>0.006839</td>
-      <td>2.318373</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>What is my outstanding leave count</td>
-      <td>leave-balance</td>
-      <td>0.863830</td>
-      <td>0.098434</td>
-      <td>0.006839</td>
-      <td>2.318373</td>
-    </tr>
-  </tbody>
-</table><h3>DNN_elmo</h3>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Utterance</th>
-      <th>True Intent</th>
-      <th>apply-leave</th>
-      <th>leave-balance</th>
-      <th>schedule-meeting</th>
-      <th>Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>search for @rajdeep</td>
-      <td>schedule-meeting</td>
-      <td>0.948257</td>
-      <td>0.235852</td>
-      <td>0.000603</td>
-      <td>7.414035</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>block my calendar tomorrow</td>
-      <td>schedule-meeting</td>
-      <td>0.918711</td>
-      <td>0.093480</td>
-      <td>0.005622</td>
-      <td>5.181043</td>
-    </tr>
-    <tr>
-      <th>2</th>
+      <th>7</th>
       <td>leave balance</td>
       <td>leave-balance</td>
-      <td>0.955680</td>
-      <td>0.009589</td>
-      <td>0.024554</td>
-      <td>4.647180</td>
+      <td>0.125977</td>
+      <td>0.425222</td>
+      <td>0.015945</td>
+      <td>0.855145</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>Calendar booking</td>
+      <th>8</th>
+      <td>Leave balance.</td>
+      <td>leave-balance</td>
+      <td>0.125977</td>
+      <td>0.425222</td>
+      <td>0.015945</td>
+      <td>0.855145</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>leave entitlement</td>
+      <td>leave-balance</td>
+      <td>0.384092</td>
+      <td>0.465828</td>
+      <td>0.000834</td>
+      <td>0.763938</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>i want to schedule a meeting on january 1st 2019</td>
       <td>schedule-meeting</td>
-      <td>0.790298</td>
-      <td>0.259252</td>
-      <td>0.009678</td>
-      <td>4.637901</td>
+      <td>0.137885</td>
+      <td>0.011116</td>
+      <td>0.506144</td>
+      <td>0.680935</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>11</th>
+      <td>outstanding leave balance</td>
+      <td>leave-balance</td>
+      <td>0.108018</td>
+      <td>0.525619</td>
+      <td>0.023015</td>
+      <td>0.643179</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>what is the procedure to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.552840</td>
+      <td>0.151574</td>
+      <td>0.005497</td>
+      <td>0.592686</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>my leave entitlement</td>
+      <td>leave-balance</td>
+      <td>0.504669</td>
+      <td>0.554743</td>
+      <td>0.000314</td>
+      <td>0.589251</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>my leave entitlement</td>
+      <td>leave-balance</td>
+      <td>0.504669</td>
+      <td>0.554743</td>
+      <td>0.000314</td>
+      <td>0.589251</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>show me my carry forward leaves</td>
+      <td>leave-balance</td>
+      <td>0.019905</td>
+      <td>0.571894</td>
+      <td>0.044037</td>
+      <td>0.558801</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>show balance for leave</td>
+      <td>leave-balance</td>
+      <td>0.015464</td>
+      <td>0.586269</td>
+      <td>0.012125</td>
+      <td>0.533976</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>please book my leave</td>
+      <td>apply-leave</td>
+      <td>0.603748</td>
+      <td>0.135523</td>
+      <td>0.002707</td>
+      <td>0.504599</td>
+    </tr>
+    <tr>
+      <th>18</th>
       <td>Show my CEO's profile data</td>
       <td>schedule-meeting</td>
-      <td>0.316179</td>
-      <td>0.734286</td>
-      <td>0.015654</td>
-      <td>4.157022</td>
+      <td>0.005121</td>
+      <td>0.823593</td>
+      <td>0.633268</td>
+      <td>0.456861</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>my leave balance</td>
+      <td>leave-balance</td>
+      <td>0.084843</td>
+      <td>0.658612</td>
+      <td>0.008568</td>
+      <td>0.417621</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>i want to book a leave tomorrow</td>
+      <td>apply-leave</td>
+      <td>0.671170</td>
+      <td>0.055956</td>
+      <td>0.007127</td>
+      <td>0.398734</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>How to block calendar of Kishore</td>
+      <td>schedule-meeting</td>
+      <td>0.049800</td>
+      <td>0.010670</td>
+      <td>0.682881</td>
+      <td>0.381435</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>outstanding leave count</td>
+      <td>leave-balance</td>
+      <td>0.293371</td>
+      <td>0.702880</td>
+      <td>0.002105</td>
+      <td>0.352569</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>I need to take a leave from next friday</td>
+      <td>apply-leave</td>
+      <td>0.708469</td>
+      <td>0.103448</td>
+      <td>0.000374</td>
+      <td>0.344649</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>current year leave entitlement</td>
+      <td>leave-balance</td>
+      <td>0.056037</td>
+      <td>0.736504</td>
+      <td>0.005156</td>
+      <td>0.305841</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>I want to block calendar of Raghu</td>
+      <td>schedule-meeting</td>
+      <td>0.039598</td>
+      <td>0.005027</td>
+      <td>0.741057</td>
+      <td>0.299678</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>I need to take a leave on tomorrow</td>
+      <td>apply-leave</td>
+      <td>0.741145</td>
+      <td>0.035087</td>
+      <td>0.001844</td>
+      <td>0.299559</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>How can I mark leave?</td>
+      <td>apply-leave</td>
+      <td>0.779561</td>
+      <td>0.179624</td>
+      <td>0.000225</td>
+      <td>0.249025</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>i want to book a leave</td>
+      <td>apply-leave</td>
+      <td>0.784067</td>
+      <td>0.048669</td>
+      <td>0.002290</td>
+      <td>0.243261</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Calendar booking</td>
+      <td>schedule-meeting</td>
+      <td>0.452993</td>
+      <td>0.000237</td>
+      <td>0.784772</td>
+      <td>0.242362</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>I want to take off from work</td>
+      <td>apply-leave</td>
+      <td>0.787380</td>
+      <td>0.013978</td>
+      <td>0.002147</td>
+      <td>0.239044</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>can you block my calendar from 7 to 8 am tomorrow</td>
+      <td>schedule-meeting</td>
+      <td>0.007033</td>
+      <td>0.024687</td>
+      <td>0.799675</td>
+      <td>0.223550</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>How can I apply for leave?</td>
+      <td>apply-leave</td>
+      <td>0.814219</td>
+      <td>0.290285</td>
+      <td>0.000056</td>
+      <td>0.205526</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>block my calendar tomorrow</td>
+      <td>schedule-meeting</td>
+      <td>0.048133</td>
+      <td>0.001741</td>
+      <td>0.822081</td>
+      <td>0.195916</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>show leave balance</td>
+      <td>leave-balance</td>
+      <td>0.001632</td>
+      <td>0.827972</td>
+      <td>0.060792</td>
+      <td>0.188776</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>block my time</td>
+      <td>schedule-meeting</td>
+      <td>0.225552</td>
+      <td>0.000893</td>
+      <td>0.830857</td>
+      <td>0.185297</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Block calendar</td>
+      <td>schedule-meeting</td>
+      <td>0.099362</td>
+      <td>0.000662</td>
+      <td>0.854794</td>
+      <td>0.156895</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>i want to apply leave from tuesday till thursday</td>
+      <td>apply-leave</td>
+      <td>0.876231</td>
+      <td>0.003971</td>
+      <td>0.018122</td>
+      <td>0.132125</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>plz tell me how many leave available for me</td>
+      <td>leave-balance</td>
+      <td>0.002852</td>
+      <td>0.889632</td>
+      <td>0.018933</td>
+      <td>0.116948</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>search for @rajdeep</td>
+      <td>schedule-meeting</td>
+      <td>0.034491</td>
+      <td>0.029584</td>
+      <td>0.889649</td>
+      <td>0.116929</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>leave entitlement balance</td>
+      <td>leave-balance</td>
+      <td>0.022603</td>
+      <td>0.890404</td>
+      <td>0.002338</td>
+      <td>0.116080</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>I want to see leave balances</td>
+      <td>leave-balance</td>
+      <td>0.028932</td>
+      <td>0.894045</td>
+      <td>0.003199</td>
+      <td>0.111999</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>i want to book a leave on 24th august</td>
+      <td>apply-leave</td>
+      <td>0.894442</td>
+      <td>0.008714</td>
+      <td>0.017983</td>
+      <td>0.111555</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>i want to apply leave from tuesday to thursday</td>
+      <td>apply-leave</td>
+      <td>0.898254</td>
+      <td>0.002790</td>
+      <td>0.023883</td>
+      <td>0.107302</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Show my leave balance</td>
+      <td>leave-balance</td>
+      <td>0.002583</td>
+      <td>0.901649</td>
+      <td>0.040463</td>
+      <td>0.103530</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>want to see leave balances</td>
+      <td>leave-balance</td>
+      <td>0.009414</td>
+      <td>0.904449</td>
+      <td>0.005816</td>
+      <td>0.100430</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>How many leave i m having</td>
+      <td>leave-balance</td>
+      <td>0.009446</td>
+      <td>0.913952</td>
+      <td>0.002944</td>
+      <td>0.089977</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>i want to apply leave from apr-1 to apr-3</td>
+      <td>apply-leave</td>
+      <td>0.916866</td>
+      <td>0.002591</td>
+      <td>0.010068</td>
+      <td>0.086794</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>I want to schedule a meeting from june 1st</td>
+      <td>schedule-meeting</td>
+      <td>0.241309</td>
+      <td>0.000199</td>
+      <td>0.921094</td>
+      <td>0.082193</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>I want to have a meeting with @nasrullah</td>
+      <td>schedule-meeting</td>
+      <td>0.074077</td>
+      <td>0.000513</td>
+      <td>0.929445</td>
+      <td>0.073168</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Number of leaves left in my account?</td>
+      <td>leave-balance</td>
+      <td>0.033050</td>
+      <td>0.950952</td>
+      <td>0.002926</td>
+      <td>0.050291</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>i want to know remaining leaves</td>
+      <td>leave-balance</td>
+      <td>0.031378</td>
+      <td>0.953953</td>
+      <td>0.000903</td>
+      <td>0.047141</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Book calendar of gaurav</td>
+      <td>schedule-meeting</td>
+      <td>0.059654</td>
+      <td>0.001092</td>
+      <td>0.955642</td>
+      <td>0.045372</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>I want to have a meeting with Rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.034027</td>
+      <td>0.000697</td>
+      <td>0.958011</td>
+      <td>0.042896</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>I need to take a leave</td>
+      <td>apply-leave</td>
+      <td>0.959099</td>
+      <td>0.032859</td>
+      <td>0.000109</td>
+      <td>0.041761</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>I want to see leave balance</td>
+      <td>leave-balance</td>
+      <td>0.004141</td>
+      <td>0.960310</td>
+      <td>0.007281</td>
+      <td>0.040499</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>want to see leave balance</td>
+      <td>leave-balance</td>
+      <td>0.001170</td>
+      <td>0.961027</td>
+      <td>0.016481</td>
+      <td>0.039753</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>how many previlige leave do I have</td>
+      <td>leave-balance</td>
+      <td>0.006221</td>
+      <td>0.962400</td>
+      <td>0.002059</td>
+      <td>0.038325</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>what is my leave status</td>
+      <td>leave-balance</td>
+      <td>0.143242</td>
+      <td>0.965890</td>
+      <td>0.000076</td>
+      <td>0.034706</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Number of leaves that I have in my account?</td>
+      <td>leave-balance</td>
+      <td>0.025656</td>
+      <td>0.967653</td>
+      <td>0.002697</td>
+      <td>0.032882</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>block calendar with rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.038316</td>
+      <td>0.000302</td>
+      <td>0.968018</td>
+      <td>0.032505</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>I wanna take a day off</td>
+      <td>apply-leave</td>
+      <td>0.972439</td>
+      <td>0.027726</td>
+      <td>0.000093</td>
+      <td>0.027948</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>I want to get a day off</td>
+      <td>apply-leave</td>
+      <td>0.973188</td>
+      <td>0.010326</td>
+      <td>0.000162</td>
+      <td>0.027178</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>I wan to schedule a meeting</td>
+      <td>schedule-meeting</td>
+      <td>0.156491</td>
+      <td>0.000059</td>
+      <td>0.974542</td>
+      <td>0.025788</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>i want to check my leave balance</td>
+      <td>leave-balance</td>
+      <td>0.001422</td>
+      <td>0.975308</td>
+      <td>0.009854</td>
+      <td>0.025002</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>i want to book a leave on 23rd january</td>
+      <td>apply-leave</td>
+      <td>0.978154</td>
+      <td>0.002144</td>
+      <td>0.007221</td>
+      <td>0.022088</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>how many carry forward leave do I have</td>
+      <td>leave-balance</td>
+      <td>0.004285</td>
+      <td>0.979042</td>
+      <td>0.002887</td>
+      <td>0.021180</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>I want to get leaves?</td>
+      <td>apply-leave</td>
+      <td>0.979501</td>
+      <td>0.010813</td>
+      <td>0.000430</td>
+      <td>0.020712</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>I want to mark leaves?</td>
+      <td>apply-leave</td>
+      <td>0.979881</td>
+      <td>0.007032</td>
+      <td>0.000805</td>
+      <td>0.020324</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>I want to take a day off</td>
+      <td>apply-leave</td>
+      <td>0.980076</td>
+      <td>0.012407</td>
+      <td>0.000112</td>
+      <td>0.020126</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>i want to apply one day leave</td>
+      <td>apply-leave</td>
+      <td>0.980179</td>
+      <td>0.012653</td>
+      <td>0.000112</td>
+      <td>0.020020</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>apply leave for five days</td>
+      <td>apply-leave</td>
+      <td>0.981396</td>
+      <td>0.000605</td>
+      <td>0.009196</td>
+      <td>0.018780</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>apply annual leave</td>
+      <td>apply-leave</td>
+      <td>0.982047</td>
+      <td>0.017496</td>
+      <td>0.000506</td>
+      <td>0.018116</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>apply leave for five days from 23/04/2019</td>
+      <td>apply-leave</td>
+      <td>0.982532</td>
+      <td>0.000252</td>
+      <td>0.024538</td>
+      <td>0.017623</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>i want to apply leave for ond day</td>
+      <td>apply-leave</td>
+      <td>0.982678</td>
+      <td>0.001232</td>
+      <td>0.001666</td>
+      <td>0.017474</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>show me my current year leave entitlement</td>
+      <td>leave-balance</td>
+      <td>0.001619</td>
+      <td>0.982842</td>
+      <td>0.003599</td>
+      <td>0.017307</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Mark Leave</td>
+      <td>apply-leave</td>
+      <td>0.983057</td>
+      <td>0.001795</td>
+      <td>0.005528</td>
+      <td>0.017089</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>i want to know my remaining leaves</td>
+      <td>leave-balance</td>
+      <td>0.013058</td>
+      <td>0.984084</td>
+      <td>0.000906</td>
+      <td>0.016044</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>how many leaves can I avail in the year</td>
+      <td>leave-balance</td>
+      <td>0.001843</td>
+      <td>0.984087</td>
+      <td>0.001827</td>
+      <td>0.016041</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>what is my current year leave entitlement</td>
+      <td>leave-balance</td>
+      <td>0.036236</td>
+      <td>0.985067</td>
+      <td>0.000196</td>
+      <td>0.015046</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>i said i want to take a break</td>
+      <td>apply-leave</td>
+      <td>0.986423</td>
+      <td>0.003441</td>
+      <td>0.000548</td>
+      <td>0.013670</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>can you organise a meeting with rajesh</td>
+      <td>schedule-meeting</td>
+      <td>0.000813</td>
+      <td>0.021275</td>
+      <td>0.986657</td>
+      <td>0.013433</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>schedule a meeting for me</td>
+      <td>schedule-meeting</td>
+      <td>0.025507</td>
+      <td>0.000104</td>
+      <td>0.987101</td>
+      <td>0.012983</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>i want to apply leave from next monday</td>
+      <td>apply-leave</td>
+      <td>0.987918</td>
+      <td>0.003827</td>
+      <td>0.000788</td>
+      <td>0.012155</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>i want to know leaves remaining</td>
+      <td>leave-balance</td>
+      <td>0.011576</td>
+      <td>0.988051</td>
+      <td>0.000761</td>
+      <td>0.012021</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>i want to apply  leave from 1-apr to 5-apr</td>
+      <td>apply-leave</td>
+      <td>0.988746</td>
+      <td>0.001236</td>
+      <td>0.003567</td>
+      <td>0.011318</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>apply leave for 5 days from tomorrow</td>
+      <td>apply-leave</td>
+      <td>0.988887</td>
+      <td>0.000367</td>
+      <td>0.005791</td>
+      <td>0.011175</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>wha is the leave balance</td>
+      <td>leave-balance</td>
+      <td>0.025421</td>
+      <td>0.989748</td>
+      <td>0.000262</td>
+      <td>0.010304</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>Apply a day off.</td>
+      <td>apply-leave</td>
+      <td>0.989825</td>
+      <td>0.000524</td>
+      <td>0.002359</td>
+      <td>0.010227</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>how many carry forward leaves i have</td>
+      <td>leave-balance</td>
+      <td>0.000917</td>
+      <td>0.990006</td>
+      <td>0.007385</td>
+      <td>0.010045</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>Apply Leave</td>
+      <td>apply-leave</td>
+      <td>0.990217</td>
+      <td>0.000482</td>
+      <td>0.005955</td>
+      <td>0.009831</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>How many leaves can i take</td>
+      <td>leave-balance</td>
+      <td>0.002930</td>
+      <td>0.990549</td>
+      <td>0.000641</td>
+      <td>0.009496</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>can you set up a sync up</td>
+      <td>schedule-meeting</td>
+      <td>0.000136</td>
+      <td>0.038477</td>
+      <td>0.990838</td>
+      <td>0.009204</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>How much annual leave am I entitled to?</td>
+      <td>leave-balance</td>
+      <td>0.074934</td>
+      <td>0.991385</td>
+      <td>0.000021</td>
+      <td>0.008652</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>What are my leave entitlement?</td>
+      <td>leave-balance</td>
+      <td>0.033191</td>
+      <td>0.991872</td>
+      <td>0.000056</td>
+      <td>0.008162</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>book a meeting tomorrow</td>
+      <td>schedule-meeting</td>
+      <td>0.004794</td>
+      <td>0.001573</td>
+      <td>0.991936</td>
+      <td>0.008096</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>I want to check leave balance</td>
+      <td>leave-balance</td>
+      <td>0.000769</td>
+      <td>0.992967</td>
+      <td>0.005166</td>
+      <td>0.007058</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>apply leave from may 1st</td>
+      <td>apply-leave</td>
+      <td>0.993379</td>
+      <td>0.000197</td>
+      <td>0.009636</td>
+      <td>0.006643</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>block meeting for me</td>
+      <td>schedule-meeting</td>
+      <td>0.020992</td>
+      <td>0.000320</td>
+      <td>0.993822</td>
+      <td>0.006197</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>schedule a connect</td>
+      <td>schedule-meeting</td>
+      <td>0.035714</td>
+      <td>0.000019</td>
+      <td>0.994718</td>
+      <td>0.005296</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>how many leaves in my quota</td>
+      <td>leave-balance</td>
+      <td>0.001025</td>
+      <td>0.994926</td>
+      <td>0.001716</td>
+      <td>0.005086</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>Meet with Shubhi</td>
+      <td>schedule-meeting</td>
+      <td>0.065591</td>
+      <td>0.000342</td>
+      <td>0.994970</td>
+      <td>0.005043</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>How many leaves can I avail?</td>
+      <td>leave-balance</td>
+      <td>0.000264</td>
+      <td>0.995007</td>
+      <td>0.004518</td>
+      <td>0.005006</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>i want to schedule meeting tomorrow 10 am to 11 am</td>
+      <td>schedule-meeting</td>
+      <td>0.003054</td>
+      <td>0.000955</td>
+      <td>0.995396</td>
+      <td>0.004615</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>block the meeting</td>
+      <td>schedule-meeting</td>
+      <td>0.006050</td>
+      <td>0.002715</td>
+      <td>0.995552</td>
+      <td>0.004458</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>leave request</td>
+      <td>apply-leave</td>
+      <td>0.995940</td>
+      <td>0.000987</td>
+      <td>0.003132</td>
+      <td>0.004068</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>i want to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.996398</td>
+      <td>0.001559</td>
+      <td>0.000349</td>
+      <td>0.003608</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>i want to apply leave</td>
+      <td>apply-leave</td>
+      <td>0.996398</td>
+      <td>0.001559</td>
+      <td>0.000349</td>
+      <td>0.003608</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>schedule a meeting</td>
+      <td>schedule-meeting</td>
+      <td>0.011113</td>
+      <td>0.000151</td>
+      <td>0.996447</td>
+      <td>0.003559</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>can you set up a connect</td>
+      <td>schedule-meeting</td>
+      <td>0.000349</td>
+      <td>0.015465</td>
+      <td>0.996877</td>
+      <td>0.003128</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>how many leaves are pending</td>
+      <td>leave-balance</td>
+      <td>0.001282</td>
+      <td>0.996930</td>
+      <td>0.001500</td>
+      <td>0.003075</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>book a meeting on 24 aug</td>
+      <td>schedule-meeting</td>
+      <td>0.022981</td>
+      <td>0.000307</td>
+      <td>0.996944</td>
+      <td>0.003061</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>Schedule a discussion with Shubhi</td>
+      <td>schedule-meeting</td>
+      <td>0.057176</td>
+      <td>0.000031</td>
+      <td>0.996972</td>
+      <td>0.003032</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>How many leaves do I have left?</td>
+      <td>leave-balance</td>
+      <td>0.001834</td>
+      <td>0.997042</td>
+      <td>0.000526</td>
+      <td>0.002963</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>I need to take a leave on 23rd september</td>
+      <td>apply-leave</td>
+      <td>0.997084</td>
+      <td>0.000390</td>
+      <td>0.002897</td>
+      <td>0.002920</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>apply leave from</td>
+      <td>apply-leave</td>
+      <td>0.997310</td>
+      <td>0.000040</td>
+      <td>0.016164</td>
+      <td>0.002693</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>i want to apply leave from monday</td>
+      <td>apply-leave</td>
+      <td>0.997353</td>
+      <td>0.001097</td>
+      <td>0.000625</td>
+      <td>0.002651</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>arrange meeting tomorrow</td>
+      <td>schedule-meeting</td>
+      <td>0.003952</td>
+      <td>0.000591</td>
+      <td>0.997410</td>
+      <td>0.002593</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>what is my available leave balance</td>
+      <td>leave-balance</td>
+      <td>0.000262</td>
+      <td>0.997518</td>
+      <td>0.006247</td>
+      <td>0.002485</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>how many leaves are left</td>
+      <td>leave-balance</td>
+      <td>0.001834</td>
+      <td>0.997538</td>
+      <td>0.000750</td>
+      <td>0.002465</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>how many leaves are left</td>
+      <td>leave-balance</td>
+      <td>0.001834</td>
+      <td>0.997538</td>
+      <td>0.000750</td>
+      <td>0.002465</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>create a sync up tomorrow</td>
+      <td>schedule-meeting</td>
+      <td>0.001354</td>
+      <td>0.000859</td>
+      <td>0.997584</td>
+      <td>0.002419</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>what is my leave balance</td>
+      <td>leave-balance</td>
+      <td>0.001605</td>
+      <td>0.997669</td>
+      <td>0.001334</td>
+      <td>0.002334</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>How much annual leave am I have left?</td>
+      <td>leave-balance</td>
+      <td>0.017319</td>
+      <td>0.997875</td>
+      <td>0.000029</td>
+      <td>0.002127</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>how many priveleged leaves i have</td>
+      <td>leave-balance</td>
+      <td>0.000577</td>
+      <td>0.998105</td>
+      <td>0.001945</td>
+      <td>0.001897</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>Organize meeting</td>
+      <td>schedule-meeting</td>
+      <td>0.007725</td>
+      <td>0.000116</td>
+      <td>0.998186</td>
+      <td>0.001816</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>Schedule a meet with Shubhi</td>
+      <td>schedule-meeting</td>
+      <td>0.051909</td>
+      <td>0.000015</td>
+      <td>0.998392</td>
+      <td>0.001609</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>How many leaves are left in my account?</td>
+      <td>leave-balance</td>
+      <td>0.004116</td>
+      <td>0.998495</td>
+      <td>0.000412</td>
+      <td>0.001506</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>can you set up a meeting with rajdeep</td>
+      <td>schedule-meeting</td>
+      <td>0.000111</td>
+      <td>0.039791</td>
+      <td>0.998595</td>
+      <td>0.001406</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>What is my outstanding leave count</td>
+      <td>leave-balance</td>
+      <td>0.005595</td>
+      <td>0.998618</td>
+      <td>0.000476</td>
+      <td>0.001383</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>Application for leave</td>
+      <td>apply-leave</td>
+      <td>0.998903</td>
+      <td>0.000236</td>
+      <td>0.000988</td>
+      <td>0.001098</td>
+    </tr>
+    <tr>
+      <th>131</th>
+      <td>I want to apply  leave from June 15th till June 22nd</td>
+      <td>apply-leave</td>
+      <td>0.998915</td>
+      <td>0.000095</td>
+      <td>0.016448</td>
+      <td>0.001086</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>what is the leave entitlement balance</td>
+      <td>leave-balance</td>
+      <td>0.004670</td>
+      <td>0.999035</td>
+      <td>0.000082</td>
+      <td>0.000966</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>can you show me my leave balance</td>
+      <td>leave-balance</td>
+      <td>0.000038</td>
+      <td>0.999162</td>
+      <td>0.025370</td>
+      <td>0.000838</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>schedule a sync up meeting</td>
+      <td>schedule-meeting</td>
+      <td>0.000351</td>
+      <td>0.000598</td>
+      <td>0.999165</td>
+      <td>0.000836</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>leave application</td>
+      <td>apply-leave</td>
+      <td>0.999349</td>
+      <td>0.000377</td>
+      <td>0.001584</td>
+      <td>0.000651</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>Join a discussion with gaurav</td>
+      <td>schedule-meeting</td>
+      <td>0.004867</td>
+      <td>0.000073</td>
+      <td>0.999602</td>
+      <td>0.000398</td>
     </tr>
   </tbody>
 </table>

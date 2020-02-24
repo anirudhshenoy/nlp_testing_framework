@@ -39,33 +39,12 @@ def pipeline_lstm_feature(text):
 def pipeline_avg_glove(text):
     return np.average(glove.query(word_tokenize(text)), axis = 0)
 
-def avg_glove(X):
-    X_train, X_test = X
-    train_vectors = []
-    test_vectors = []
-    for text in tqdm(X_train):
-        train_vectors.append(pipeline_avg_glove(text))
-    for text in tqdm(X_test):
-        test_vectors.append(pipeline_avg_glove(text))
-    return (np.array(train_vectors), np.array(test_vectors))
-
 
 def pipeline_idf_glove(text):
     idf_dict = dict(zip(tfidf.get_feature_names(), tfidf.idf_))
     glove_vectors = glove.query(word_tokenize(text))
     weights = [idf_dict.get(word, 1) for word in word_tokenize(text)]
     return np.average(glove_vectors, axis = 0, weights = weights)
-
-
-def idf_glove(X):
-    X_train, X_test = X
-    train_vectors = []
-    test_vectors = []
-    for text in tqdm(X_train): 
-        train_vectors.append(pipeline_idf_glove(text))
-    for text in tqdm(X_test):
-        test_vectors.append(pipeline_idf_glove(text))
-    return (np.array(train_vectors), np.array(test_vectors))
 
 
 def pipeline_elmo(text):
@@ -85,24 +64,20 @@ def read_data(dataset_path):
 def pipeline_sent_enc(text):
     return embed([text]).numpy()[0]
 
-def sent_enc(X):
-    X_train, X_test = X
-    train_vectors = embed(X_train).numpy()
-    test_vectors = embed(X_test).numpy()
-    return train_vectors, test_vectors
 
 if __name__ == '__main__':
     dataset = read_data('dataset/mainModel.csv')
     dataset = preprocess(dataset, {
         'tfidf' : tfidf,
         'tokenizer' : tokenizer})
+        
     features = {
-        'lstm_features' : pipeline_lstm_feature,
+       # 'lstm_features' : pipeline_lstm_feature,
         'sent_enc' : pipeline_sent_enc,
-        #'glove' : pipeline_avg_glove,
-        'idf_glove' : pipeline_idf_glove,
-        'tfidf' : pipeline_tfidf_vectorize,
-        'elmo' : pipeline_elmo
+       # 'glove' : pipeline_avg_glove,
+       # 'idf_glove' : pipeline_idf_glove,
+       # 'tfidf' : pipeline_tfidf_vectorize,
+       # 'elmo' : pipeline_elmo
     }
 
     features = featurize_and_split(dataset, features)
@@ -139,7 +114,7 @@ if __name__ == '__main__':
     dnn = {
         'model' : DNN_Model(),
         'params' : 'validate',
-        'features_to_run' : ['sent_vec']
+        'features_to_run' : ['sent_enc']
     }
     cnn = {
         'model' : CNN_Model(tokenizer),
@@ -151,15 +126,15 @@ if __name__ == '__main__':
     svm_sgd = {
         'model' : OneVsRestClassifier(SGDClassifier(loss = 'log'), n_jobs = -1),
         'params' : {'estimator__alpha' : [1e-4, 1e-3, 1e-2, 1e-1, 1, 10, 100]},
-        'features_to_run' : ['tfidf', 'idf_glove', 'sent_enc']
+        'features_to_run' : ['tfidf', 'idf_glove', 'sent_enc', 'glove']
 
     } 
 
 
     models = {
-       'cnn' : cnn,
+     #  'cnn' : cnn,
        'DNN' : dnn,
-       'log_reg' : svm_sgd,
+     #  'log_reg' : svm_sgd,
        #'svm' : svm
        #'rf' : rf
     }

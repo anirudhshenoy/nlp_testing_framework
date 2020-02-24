@@ -42,7 +42,7 @@ def least_confident(targets, preds):
     ce = -np.sum(targets * safe_ln(preds), axis = 1)
     max_index = np.flip(np.argsort(ce))
     rows = []
-    for idx in max_index[:5]:
+    for idx in max_index:
         row = []
         row.append(X[idx])
         row.append(y[idx])
@@ -106,6 +106,7 @@ def report(models, features):
             y_pred = model.predict_proba(X_test)
             #y_pred = np.array([y[:,1] for y in y_pred]).transpose()
             temp_results, least_conf = print_model_metrics(y_test, y_pred)
+            least_conf.to_csv('least_conf/' + model_name + '.csv')
             results[model_name + '_' + feature_name] = {
                 'model_name' : model_name,
                 'metrics' : temp_results,

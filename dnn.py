@@ -11,7 +11,7 @@ import numpy as np
 class DNN_Model:
     def __init__(self):    
 
-        input_comments = Input(shape = (768,), name = 'user_utterance')
+        input_comments = Input(shape = (512,), name = 'user_utterance')
         x = Dense(256, activation = 'relu')(input_comments)
         x = BatchNormalization()(x)
         x = Dropout(0.5)(x)
